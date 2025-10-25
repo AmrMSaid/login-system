@@ -1,0 +1,44 @@
+body {
+  background-color: #24353f;
+  color: #17a2b8;
+  overflow: hidden;
+}
+
+.navbar {
+  background-color: #24353f !important;
+  box-shadow: 1px 1px 25px black;
+}
+
+.btn-outline-success {
+  --bs-btn-color: #b6b6b6;
+  --bs-btn-border-color: #ffc107;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-border-color: #ffc107;
+  --bs-btn-active-bg: #ffc107;
+  --bs-btn-active-border-color: #ffc107;
+}
+
+.box {
+  box-shadow: 1px 1px 25px black;
+}
+
+::placeholder {
+  color: #b6b6b6 !important;
+}
+
+.signup,
+.login {
+  color: #17a2b8 !important;
+}
+
+.signup:hover,
+.login:hover {
+  background-color: #17a2b8 !important;
+  color: white !important;
+}
+
+.login-link:hover,
+.signup-link:hover {
+  text-decoration: underline !important;
+}
