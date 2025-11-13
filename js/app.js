@@ -4,7 +4,7 @@ var signupPassword = document.getElementById("signupPassword");
 var loginEmail = document.getElementById("loginEmail");
 var loginPassword = document.getElementById("loginPassword");
 var username = localStorage.getItem("sessionUsername");
-var usernameElement = document.getElementById("username");
+var usernameHome = document.getElementById("usernameHome");
 var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 var passwordRegex = /^[a-zA-Z0-9]{6,}$/;
 var usersArr = [];
@@ -26,7 +26,7 @@ function login() {
   var incorrectElement = document.getElementById("incorrect");
   if (!loginFields()) {
     incorrectElement.innerHTML =
-      '<span class="text-danger m-3">All inputs are required</span>';
+      '<span class="text-danger m-3">all inputs are required</span>';
     return false;
   }
   var password = loginPassword.value;
@@ -54,9 +54,9 @@ function login() {
 
   localStorage.setItem("sessionUsername", user.name);
   if (baseURL === "/") {
-    location.replace(location.origin + "/home.html");
+    location.replace(location.origin + "/html/home.html");
   } else {
-    location.replace(baseURL + "/home.html");
+    location.replace(baseURL + "/html/home.html");
   }
 }
 
@@ -83,7 +83,7 @@ function signUp() {
   var existElement = document.getElementById("exist");
   if (!signupFields()) {
     existElement.innerHTML =
-      '<span class="text-danger m-3">All inputs are required</span>';
+      '<span class="text-danger m-3">all inputs are required</span>';
     return false;
   }
   var signUp = {
@@ -103,14 +103,14 @@ function signUp() {
   }
   if (!passwordRegex.test(signUp.password)) {
     existElement.innerHTML =
-      '<span class="text-danger m-3">password must be at least 6 characters long.</span>';
+      '<span class="text-danger m-3">password must be at least 6 characters long</span>';
     return false;
   }
   usersArr.push(signUp);
   localStorage.setItem("users", JSON.stringify(usersArr));
   localStorage.setItem("sessionUsername", signUp.name);
 
-  existElement.innerHTML = '<span class="text-success m-3">Success</span>';
+  existElement.innerHTML = '<span class="text-success m-3">success</span>';
   if (baseURL === "/") {
     location.replace(location.origin + "/home.html");
   } else {
@@ -119,10 +119,9 @@ function signUp() {
   return true;
 }
 
-if (username && usernameElement) {
-  usernameElement.innerHTML = "Welcome " + username;
-}
+usernameHome.innerHTML = "Welcome " + username;
 
 function logout() {
   localStorage.removeItem("sessionUsername");
+  location.replace("../index.html");
 }
